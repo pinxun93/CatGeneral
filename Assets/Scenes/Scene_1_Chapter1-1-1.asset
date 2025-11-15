@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8c1e35e1ecbe364980d5c8a641cfa28, type: 3}
-  m_Name: TestScene_Intro
+  m_Name: Scene_1_Chapter1-1-1
   m_EditorClassIdentifier: 
   dialogueTitle: Scene_1_Intro
   background: {fileID: 692459440553729930, guid: d42468a3a91af1347999aff17fb83420, type: 3}

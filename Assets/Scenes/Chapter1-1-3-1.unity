@@ -626,6 +626,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000015258789, y: -232.50069}
   m_SizeDelta: {x: 1280, y: 254.9987}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1127999100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1127999101}
+  - component: {fileID: 1127999103}
+  - component: {fileID: 1127999102}
+  m_Layer: 5
+  m_Name: Backgroud_Image3-1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1127999101
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127999100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743631981}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1127999102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127999100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 8839980847374429919, guid: 00fe99c38cdac8f41b4a6fdec98da4bf, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1127999103
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127999100}
+  m_CullTransparentMesh: 1
 --- !u!1 &1637124141
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +849,6 @@ GameObject:
   - component: {fileID: 1742229123}
   - component: {fileID: 1742229124}
   - component: {fileID: 1742229125}
-  - component: {fileID: 1742229126}
   m_Layer: 5
   m_Name: DialogueController
   m_TagString: Untagged
@@ -832,21 +906,8 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1077061437}
   characterImage: {fileID: 134526435}
   backgroundRenderer: {fileID: 2131483477}
-  sceneController: {fileID: 1742229126}
-  currentDialogue: {fileID: 11400000, guid: 66f7bbf59462cf64e80bc2b49d700c40, type: 2}
---- !u!114 &1742229126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742229122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 762187391118f2e4e879cb4a150e42ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: Chapter1-1-3-1
+  sceneController: {fileID: 0}
+  currentDialogue: {fileID: 11400000, guid: e3b29c49594237d4b91f40d334cd8fea, type: 2}
 --- !u!1 &1743631977
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +1004,7 @@ RectTransform:
   m_Children:
   - {fileID: 2131483478}
   - {fileID: 2034601542}
+  - {fileID: 1127999101}
   - {fileID: 1795357756}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1012,8 +1074,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5818844101426979493, guid: 578bbe3fd529d4f4d8a65cffb298176e, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 8839980847374429919, guid: 00fe99c38cdac8f41b4a6fdec98da4bf, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
