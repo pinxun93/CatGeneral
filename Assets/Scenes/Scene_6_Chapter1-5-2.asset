@@ -33,5 +33,5 @@ MonoBehaviour:
     sfx: {fileID: 0}
   - characterName: "\u65C1\u767D"
     dialogueText: "\r\u4E00\u80A1\u5BD2\u610F\u63A0\u904E\u5FC3\u982D\u3002\u4E3B\u89D2\u62FF\u8D77\u7B46\u8A18\uFF0C\u8A18\u4E0B\u4ECA\u5929\u7684\u89C0\u5BDF\uFF0C\u5FC3\u4E2D\u6697\u81EA\u4E0B\u5B9A\u6C7A\u5FC3\uFF0C\u4E00\u5B9A\u8981\u67E5\u660E\u771F\u76F8\u3002"
-    characterSprite: {fileID: 8785289583145846344, guid: 6483f0fbf6a794844a7b3b2496dfba50, type: 3}
+    characterSprite: {fileID: 0}
     sfx: {fileID: 0}
