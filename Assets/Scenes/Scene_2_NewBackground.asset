@@ -15,7 +15,11 @@ MonoBehaviour:
   dialogueTitle: Scene_2
   background: {fileID: -5818844101426979493, guid: 578bbe3fd529d4f4d8a65cffb298176e, type: 3}
   dialogueLines:
-  - characterName: 
-    dialogueText: 
+  - characterName: "\u4E3B\u89D2\uFF08\u5FC3\u60F3\uFF09"
+    dialogueText: "\u2026\u2026\u4E0D\u7BA1\u524D\u65B9\u6709\u4EC0\u9EBC\uFF0C\u6211\u4E00\u5B9A\u8981\u6490\u904E\u53BB\u3002"
+    characterSprite: {fileID: 8785289583145846344, guid: 6483f0fbf6a794844a7b3b2496dfba50, type: 3}
+    sfx: {fileID: 0}
+  - characterName: "\u65C1\u767D"
+    dialogueText: "\u96A8\u8457\u6751\u93AE\u8F2A\u5ED3\u9010\u6F38\u6E05\u6670\uFF0C\u6211\u6DF1\u5438\u4E86\u4E00\u53E3\u6C23\uFF0C\u5C07\u76EE\u5149\u91CD\u65B0\u653E\u56DE\u524D\u65B9\u7684\u9053\u8DEF\uFF0C\u8E29\u4E0B\u6CB9\u9580\u5FEB\u901F\u524D\u9032\u3002"
     characterSprite: {fileID: 0}
     sfx: {fileID: 0}

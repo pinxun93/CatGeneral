@@ -11,6 +11,11 @@ public class DialogueManager : MonoBehaviour
     public Image characterImage;     // <<<<< 用來顯示立繪的 Image 元件
     public SpriteRenderer backgroundRenderer; // 用於顯示背景的 2D 元件
 
+
+    [Header("場景控制")]
+    // 連結到你的 GameSceneController 實例
+    public SceneController sceneController;
+
     [Header("數據")]
     [Tooltip("當前要播放的 DialogueData 資產")]
     public DialogueData currentDialogue;
@@ -53,6 +58,12 @@ public class DialogueManager : MonoBehaviour
         if (backgroundRenderer != null && currentDialogue.background != null)
         {
             backgroundRenderer.sprite = currentDialogue.background;
+            backgroundRenderer.gameObject.SetActive(true); // 確保背景是啟動的
+        }
+        else if (backgroundRenderer != null)
+        {
+            // 如果沒有指定背景，可以選擇隱藏或保留舊的背景
+            // backgroundRenderer.gameObject.SetActive(false); 
         }
 
         DisplayNextLine();
@@ -136,8 +147,18 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         dialoguePanel.SetActive(false);
-        Debug.Log("對話流程結束！");
+        Debug.Log("對話流程結束！準備切換場景...");
         // 這裡可以觸發場景切換、遊戲狀態改變或自由移動模式
+
+        // --- 【新增邏輯】: 呼叫場景控制器進行切換 ---
+        if (sceneController != null)
+        {
+            sceneController.LoadNextGameScene();
+        }
+        else
+        {
+            Debug.LogError("Scene Controller 未連結，無法切換場景！");
+        }
     }
 
     // 將玩家的輸入邏輯從 TestDialogue 轉移到這裡
