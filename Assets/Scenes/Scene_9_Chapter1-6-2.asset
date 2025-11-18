@@ -23,7 +23,3 @@ MonoBehaviour:
     dialogueText: "\u600E\u9EBC\u6703\u5728\u6211\u5BB6\u88E1\u51FA\u73FE\uFF1F\u96E3\u9053\u548C\u6751\u88E1\u7684\u50B3\u8AAA\u6709\u95DC\u2026\u2026\uFF1F"
     characterSprite: {fileID: 8785289583145846344, guid: 6483f0fbf6a794844a7b3b2496dfba50, type: 3}
     sfx: {fileID: 0}
-  - characterName: 
-    dialogueText: "\u7AE0\u7BC0 1 \u7D50\u675F"
-    characterSprite: {fileID: 0}
-    sfx: {fileID: 0}
