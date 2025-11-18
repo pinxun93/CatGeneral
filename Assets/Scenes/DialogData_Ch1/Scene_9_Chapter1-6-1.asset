@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c1e35e1ecbe364980d5c8a641cfa28, type: 3}
+  m_Name: Scene_9_Chapter1-6-1
+  m_EditorClassIdentifier: 
+  dialogueTitle: Scene_10
+  background: {fileID: 432426588268907596, guid: 3484708ff0df6e948bb3b23bb0a1179f, type: 3}
+  dialogueLines:
+  - characterName: "\u89E3\u8B0E\u4E00"
+    dialogueText: "\u63A5\u4E0B\u4F86\u8ACB\u89C0\u5BDF\u6B64\u5340\u57DF\uFF0C\u900F\u904E\u6ED1\u9F20\u7684\u9EDE\u64CA\u53BB\u67E5\u770B\u7269\u54C1\u627E\u5230\u63D0\u793A\uFF0C\u5982\u6709\u767C\u5149\u7684\u7269\u54C1\uFF0C\u5373\u53EF\u9EDE\u6309\uFF0C\u6700\u5F8C\u5230\u4FDD\u96AA\u7BB1\u8F38\u5165\u4F60\u89C0\u5BDF\u5230\u7684\u6578\u5B57\uFF0C\u624D\u80FD\u5F97\u5230\u7834\u820A\u8C93\u5E03\u5076\u3002"
+    characterSprite: {fileID: 0}
+    sfx: {fileID: 0}
