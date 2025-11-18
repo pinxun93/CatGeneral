@@ -692,7 +692,9 @@ MonoBehaviour:
   inputField: {fileID: 1433242884}
   safeDoorObject: {fileID: 901056599}
   isUnlocked: 0
-  safeTriggerToUpdate: {fileID: 0}
+  safeTriggerToUpdate: {fileID: 1582097620}
+  sceneController: {fileID: 1582097621}
+  nextSceneName: Chapter1-1-6-2
 --- !u!114 &136633351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,7 +1213,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.7132075, g: 0.6984051, b: 0.6984051, a: 1}
   m_FlipX: 0
@@ -3172,7 +3174,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -430496663659428835, guid: 2b545d8dbf9424243bac914726755fff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4515,6 +4517,8 @@ GameObject:
   - component: {fileID: 1582097618}
   - component: {fileID: 1582097617}
   - component: {fileID: 1582097616}
+  - component: {fileID: 1582097621}
+  - component: {fileID: 1582097620}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -4553,6 +4557,8 @@ MonoBehaviour:
   safeDoorObject: {fileID: 0}
   isUnlocked: 0
   safeTriggerToUpdate: {fileID: 0}
+  sceneController: {fileID: 0}
+  nextSceneName: Room2
 --- !u!114 &1582097618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4581,6 +4587,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582097620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582097615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f4461155357dc49a23aee0ad69b50f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiManager: {fileID: 0}
+  isUnlocked: 0
+--- !u!114 &1582097621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582097615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762187391118f2e4e879cb4a150e42ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: Chapter1-1-2
 --- !u!1 &1583843401
 GameObject:
   m_ObjectHideFlags: 0
@@ -4911,7 +4944,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742229122}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cca7e061b20d1a74f9a9d2c39252ee31, type: 3}
   m_Name: 
@@ -4935,7 +4968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762187391118f2e4e879cb4a150e42ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: 
+  nextSceneName: Chapter1-1-6-2
 --- !u!1 &1742406692
 GameObject:
   m_ObjectHideFlags: 0

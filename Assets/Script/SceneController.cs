@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// 為了避免與 Unity 內建的 SceneController 混淆，建議將腳本命名為 GameFlowController 或 SceneFlowController
+
 public class SceneController : MonoBehaviour
 {
     // 如果不需要在 SceneController 內手動控制 DialogueManager，這個連結可以移除
@@ -32,5 +33,10 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(nextSceneName);
 
         Debug.Log($"成功載入場景: {nextSceneName}");
+    }
+
+    internal void LoadSceneByName(string nextSceneName)
+    {
+        throw new NotImplementedException();
     }
 }
