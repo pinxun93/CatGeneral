@@ -1,69 +1,85 @@
 using UnityEngine;
-using UnityEngine.EventSystems; // 為了滑鼠事件
+using UnityEngine.EventSystems; // 處理 UI 事件阻擋
 
-// 繼承 MonoBehaviour 並實現滑鼠懸停的介面
-public class Interactable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+// 腳本名稱保持為 Interactable (與你的檔案名一致)
+public class Interactable : MonoBehaviour
 {
-    [Header("互動 UI 連結")]
-    [Tooltip("點擊後彈出的 UI 介面 GameObject (例如：刻痕特寫)")]
+    [Header("UI & 功能連結")]
+    [Tooltip("點擊後彈出的 UI 介面 GameObject (例如：WallCarvingPanel)")]
     public GameObject interactivePanel;
 
-    [Header("視覺效果")]
-    [Tooltip("用來表現發光效果的 SpriteRenderer 或 Image 元件")]
-    public SpriteRenderer highlightRenderer; // 假設你用 SpriteRenderer
+    [Header("視覺元件")]
+    [Tooltip("用於控制圖像和顏色的 SpriteRenderer")]
+    public SpriteRenderer visualRenderer;
 
-    [Tooltip("懸停時的高亮顏色")]
+    [Header("視覺效果設定")]
     public Color highlightColor = Color.yellow;
-
     private Color originalColor;
-    private bool isPanelActive = false;
+
+    private bool isPanelActive = false; // 追蹤面板是否已彈出
 
     void Start()
     {
-        // 初始化：預設隱藏彈出介面
+        // 確保初始狀態是隱藏的
         if (interactivePanel != null)
         {
             interactivePanel.SetActive(false);
         }
 
-        // 儲存原始顏色 (如果沒有連結，這裡會是 NullReferenceException，請確保連結)
-        if (highlightRenderer != null)
+        // 嘗試自動獲取 SpriteRenderer
+        if (visualRenderer == null)
         {
-            originalColor = highlightRenderer.color;
+            visualRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        if (visualRenderer != null)
+        {
+            originalColor = visualRenderer.color;
+        }
+        else
+        {
+            Debug.LogError($"[Interactable] ERROR: {gameObject.name} 找不到 SpriteRenderer 元件！發光功能將失敗！");
         }
     }
 
-    // --- 1. 滑鼠懸停/離開邏輯 ---
+    // --- 1. 滑鼠懸停/離開邏輯 (使用 OnMouse 事件) ---
 
-    // 當滑鼠進入物件範圍時呼叫
-    public void OnPointerEnter(PointerEventData eventData)
+    // 當滑鼠進入 Collider 範圍時觸發 (發亮)
+    void OnMouseEnter()
     {
-        if (highlightRenderer != null && !isPanelActive)
+        Debug.Log("OnMouseEnter 觸發！嘗試改變顏色..."); // <<< 新增這個 Log
+        // 只有在面板沒有激活時才發光，且確保滑鼠沒有在 UI 上
+        if (visualRenderer != null && !isPanelActive && !EventSystem.current.IsPointerOverGameObject())
         {
-            // 變更顏色以實現「發光」效果
-            highlightRenderer.color = highlightColor;
+            visualRenderer.color = highlightColor;
         }
     }
 
-    // 當滑鼠離開物件範圍時呼叫
-    public void OnPointerExit(PointerEventData eventData)
+    // 當滑鼠離開 Collider 範圍時觸發 (恢復)
+    void OnMouseExit()
     {
-        if (highlightRenderer != null)
+        if (visualRenderer != null)
         {
-            // 恢復原始顏色
-            highlightRenderer.color = originalColor;
+            visualRenderer.color = originalColor;
         }
     }
 
-    // --- 2. 點擊查閱/彈出介面邏輯 ---
+    // --- 2. 點擊彈出介面邏輯 (Raycast 偵測，解決 OnMouseDown 被 UI 阻擋的問題) ---
 
-    // 當玩家點擊物件時呼叫 (如果物件是 2D Collider)
-    void OnMouseDown()
+    void Update()
     {
-        // 只有在彈出介面沒有激活時才允許再次點擊
-        if (!isPanelActive && interactivePanel != null)
+        if (Input.GetMouseButtonDown(0) && !isPanelActive)
         {
-            ShowInteractivePanel();
+            // 進行 Raycast 偵測
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+
+            // 確認擊中目標是當前這個 GameObject
+            if (hit.collider != null && hit.collider.gameObject == gameObject)
+            {
+                ShowInteractivePanel();
+                OnMouseExit();
+            }
         }
     }
 
@@ -72,10 +88,11 @@ public class Interactable : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     /// </summary>
     public void ShowInteractivePanel()
     {
-        interactivePanel.SetActive(true);
-        isPanelActive = true;
-        // 確保高亮效果在介面彈出時被關閉
-        OnPointerExit(null);
+        if (interactivePanel != null)
+        {
+            interactivePanel.SetActive(true);
+            isPanelActive = true;
+        }
     }
 
     /// <summary>
