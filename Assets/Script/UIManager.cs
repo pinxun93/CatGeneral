@@ -1,4 +1,5 @@
 // UIManager.cs
+using System;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -22,5 +23,10 @@ public class UIManager : MonoBehaviour
     public void CloseKeypad()
     {
         if (safeKeypadUI != null) safeKeypadUI.SetActive(false);
+    }
+
+    internal void ShowMessage(string solvedMessage)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1411,15 +1411,12 @@ MonoBehaviour:
   - {fileID: 182909760}
   - {fileID: 1510311079}
   - {fileID: 1339208578}
-  - {fileID: 1339208578}
   - {fileID: 1772731506}
   - {fileID: 680466316}
+  - {fileID: 274768991}
   - {fileID: 304516990}
   snapDistance: 0.5
-  shuffleAreaMin: {x: -10, y: -5}
-  shuffleAreaMax: {x: 10, y: 5}
-  uiManager: {fileID: 0}
-  nextSceneName: Room3
+  nextSceneName: Chapter2-2-1
 --- !u!4 &1670450400
 Transform:
   m_ObjectHideFlags: 0
