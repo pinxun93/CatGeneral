@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c1e35e1ecbe364980d5c8a641cfa28, type: 3}
+  m_Name: Chapter2-2-3
+  m_EditorClassIdentifier: 
+  dialogueTitle: Chapter2_Scene_3
+  background: {fileID: 2657139620823383744, guid: e161bd02f6cdc0747b4a770ca9f9d529, type: 3}
+  dialogueLines:
+  - characterName: "\u4E3B\u89D2\uFF08\u8F49\u8EAB\uFF09"
+    dialogueText: "\u8AB0\uFF1F\u662F\u8AB0\u5728\u90A3\u88E1\uFF1F"
+    characterSprite: {fileID: 8785289583145846344, guid: 6483f0fbf6a794844a7b3b2496dfba50, type: 3}
+    sfx: {fileID: 0}
+  - characterName: 
+    dialogueText: "\u4EFB\u52D9\u66F4\u65B0\uFF1A\u7372\u5F97\u7B2C\u4E8C\u4EF6\u7269\u54C1\u3008\u8C93\u8207\u5B69\u5B50\u7684\u756B\u50CF\u3009"
+    characterSprite: {fileID: 0}
+    sfx: {fileID: 0}
