@@ -1,185 +1,369 @@
-using UnityEngine;
+ï»¿using UnityEngine;
+
 using TMPro;
+
 using UnityEngine.UI;
 
+
+
 public class DialogueManager : MonoBehaviour
+
 {
-    [Header("®Ö¤ß¤¸¥ó")]
+
+    [Header("æ ¸å¿ƒå…ƒä»¶")]
+
     public TypewriterEffect typewriterEffect;
-    public TextMeshProUGUI nameText; // ¥Î¨ÓÅã¥Ü¨¤¦â¦WºÙªº TMP ¤¸¥ó
-    public GameObject dialoguePanel; // ¾ã­Ó¹ï¸Ü®Øªº Panel¡A¥Î©óÅã¥Ü©MÁôÂÃ
-    public Image characterImage;     // <<<<< ¥Î¨ÓÅã¥Ü¥ßÃ¸ªº Image ¤¸¥ó
-    public SpriteRenderer backgroundRenderer; // ¥Î©óÅã¥Ü­I´ºªº 2D ¤¸¥ó
+
+    public TextMeshProUGUI nameText; // ç”¨ä¾†é¡¯ç¤ºè§’è‰²åç¨±çš„ TMP å…ƒä»¶
+
+    public GameObject dialoguePanel; // æ•´å€‹å°è©±æ¡†çš„ Panelï¼Œç”¨æ–¼é¡¯ç¤ºå’Œéš±è—
+
+    public Image characterImage;     // <<<<< ç”¨ä¾†é¡¯ç¤ºç«‹ç¹ªçš„ Image å…ƒä»¶
+
+    public SpriteRenderer backgroundRenderer; // ç”¨æ–¼é¡¯ç¤ºèƒŒæ™¯çš„ 2D å…ƒä»¶
 
 
-    [Header("³õ´º±±¨î")]
-    // ³sµ²¨ì§Aªº GameSceneController ¹ê¨Ò
+
+
+
+    [Header("å ´æ™¯æ§åˆ¶")]
+
+    // é€£çµåˆ°ä½ çš„ GameSceneController å¯¦ä¾‹
+
     public SceneController sceneController;
 
-    [Header("¼Æ¾Ú")]
-    [Tooltip("·í«e­n¼½©ñªº DialogueData ¸ê²£")]
+
+
+    [Header("æ•¸æ“š")]
+
+    [Tooltip("ç•¶å‰è¦æ’­æ”¾çš„ DialogueData è³‡ç”¢")]
+
     public DialogueData currentDialogue;
 
-    // ¤º³¡ª¬ºA°lÂÜ
+
+
+    // å…§éƒ¨ç‹€æ…‹è¿½è¹¤
+
     private int currentLineIndex = 0;
 
+
+
     void Start()
+
     {
-        Debug.Log("--- 1. DialogueManager ¸}¥»¤w±Ò°Ê ---"); // <<<<<< ¥[¤J³o¦æ
-        // ½T«O®Ö¤ß¤¸¥ó¤w³sµ²
+
+        Debug.Log("--- 1. DialogueManager è…³æœ¬å·²å•Ÿå‹• ---"); // <<<<<< åŠ å…¥é€™è¡Œ
+
+        // ç¢ºä¿æ ¸å¿ƒå…ƒä»¶å·²é€£çµ
+
         if (typewriterEffect == null)
+
         {
+
             typewriterEffect = GetComponent<TypewriterEffect>();
+
         }
 
-        // ¹CÀ¸¶}©l®É¡A¦pªG³]©w¤F¹ï¸Ü¼Æ¾Ú¡A´N¶}©l¼½©ñ
+
+
+        // éŠæˆ²é–‹å§‹æ™‚ï¼Œå¦‚æœè¨­å®šäº†å°è©±æ•¸æ“šï¼Œå°±é–‹å§‹æ’­æ”¾
+
         if (currentDialogue != null)
+
         {
-            Debug.Log("--- 2. ·Ç³Æ±Ò°Ê¹ï¸Ü StartDialogue() ---"); // <<<<<< ¥[¤J³o¦æ
+
+            Debug.Log("--- 2. æº–å‚™å•Ÿå‹•å°è©± StartDialogue() ---"); // <<<<<< åŠ å…¥é€™è¡Œ
+
             StartDialogue(currentDialogue);
+
         }
+
         else
+
         {
-            Debug.LogError("--- ¿ù»~¡GCurrent Dialogue ¼Æ¾Ú¸ê²£¬°ªÅ¡I½ĞÀË¬d Inspector¡C ---"); // <<<<<< ¥[¤J³o¦æ
-            dialoguePanel.SetActive(false); // ¦pªG¨S¦³¼Æ¾Ú¡A´NÁôÂÃ¹ï¸Ü®Ø
+
+            Debug.LogError("--- éŒ¯èª¤ï¼šCurrent Dialogue æ•¸æ“šè³‡ç”¢ç‚ºç©ºï¼è«‹æª¢æŸ¥ Inspectorã€‚ ---"); // <<<<<< åŠ å…¥é€™è¡Œ
+
+            dialoguePanel.SetActive(false); // å¦‚æœæ²’æœ‰æ•¸æ“šï¼Œå°±éš±è—å°è©±æ¡†
+
         }
+
     }
 
+
+
     /// <summary>
-    /// ¶}©l¼½©ñ«ü©wªº DialogueData
+
+    /// é–‹å§‹æ’­æ”¾æŒ‡å®šçš„ DialogueData
+
     /// </summary>
+
     public void StartDialogue(DialogueData data)
+
     {
+
         currentDialogue = data;
+
         currentLineIndex = 0;
+
         dialoguePanel.SetActive(true);
 
-        // ³]¸m­I´º
+
+
+        // è¨­ç½®èƒŒæ™¯
+
         if (backgroundRenderer != null && currentDialogue.background != null)
+
         {
+
             backgroundRenderer.sprite = currentDialogue.background;
-            backgroundRenderer.gameObject.SetActive(true); // ½T«O­I´º¬O±Ò°Êªº
+
+            backgroundRenderer.gameObject.SetActive(true); // ç¢ºä¿èƒŒæ™¯æ˜¯å•Ÿå‹•çš„
+
         }
+
         else if (backgroundRenderer != null)
+
         {
-            // ¦pªG¨S¦³«ü©w­I´º¡A¥i¥H¿ï¾ÜÁôÂÃ©Î«O¯dÂÂªº­I´º
+
+            // å¦‚æœæ²’æœ‰æŒ‡å®šèƒŒæ™¯ï¼Œå¯ä»¥é¸æ“‡éš±è—æˆ–ä¿ç•™èˆŠçš„èƒŒæ™¯
+
             // backgroundRenderer.gameObject.SetActive(false); 
+
         }
+
+
 
         DisplayNextLine();
+
     }
 
+
+
     /// <summary>
-    /// Åã¥Ü¤U¤@¦æ¹ï¸Ü
+
+    /// é¡¯ç¤ºä¸‹ä¸€è¡Œå°è©±
+
     /// </summary>
+
     public void DisplayNextLine()
+
     {
-        // ÀË¬d¬O§_ÁÙ¦³¹ï¸Ü¦æ
+
+        // æª¢æŸ¥æ˜¯å¦é‚„æœ‰å°è©±è¡Œ
+
         if (currentLineIndex >= currentDialogue.dialogueLines.Count)
+
         {
+
             EndDialogue();
+
             return;
+
         }
 
 
-        // ¨ú±o·í«eªº¹ï¸Ü¦æ¼Æ¾Ú
+
+
+
+        // å–å¾—ç•¶å‰çš„å°è©±è¡Œæ•¸æ“š
+
         DialogueLine line = currentDialogue.dialogueLines[currentLineIndex];
 
 
-        // --- 1. §ó·s UI ¤¸¯À ---
-        // ¡iA. ³B²z¨¤¦â¦WºÙ (®Ç¥Õ®É²MªÅ¦WºÙ®Ø)¡j
-        // ¦pªG characterName ¬°ªÅ¡A«hÅã¥ÜªÅ¦r¦ê
+
+
+
+        // --- 1. æ›´æ–° UI å…ƒç´  ---
+
+        // ã€A. è™•ç†è§’è‰²åç¨± (æ—ç™½æ™‚æ¸…ç©ºåç¨±æ¡†)ã€‘
+
+        // å¦‚æœ characterName ç‚ºç©ºï¼Œå‰‡é¡¯ç¤ºç©ºå­—ä¸²
+
         nameText.text = line.characterName;
 
-        // ¡iB. ³B²z¨¤¦â¥ßÃ¸ (®Ç¥Õ®ÉÁôÂÃ¥ßÃ¸)¡j
+
+
+        // ã€B. è™•ç†è§’è‰²ç«‹ç¹ª (æ—ç™½æ™‚éš±è—ç«‹ç¹ª)ã€‘
+
         if (characterImage != null)
+
         {
-            // ÀË¬d³o¦æ¹ï¸Ü¬O§_¦³«ü©w¥ßÃ¸
+
+            // æª¢æŸ¥é€™è¡Œå°è©±æ˜¯å¦æœ‰æŒ‡å®šç«‹ç¹ª
+
             bool shouldShowSprite = line.characterSprite != null;
 
+
+
             if (shouldShowSprite)
+
             {
-                // ¦pªG¦³¥ßÃ¸¡A«h³]¸m¨Ã¿E¬¡ GameObject
+
+                // å¦‚æœæœ‰ç«‹ç¹ªï¼Œå‰‡è¨­ç½®ä¸¦æ¿€æ´» GameObject
+
                 characterImage.sprite = line.characterSprite;
+
             }
-            // ²Î¤@±±¨î¥ßÃ¸ GameObject ªº¿E¬¡ª¬ºA
+
+            // çµ±ä¸€æ§åˆ¶ç«‹ç¹ª GameObject çš„æ¿€æ´»ç‹€æ…‹
+
             characterImage.gameObject.SetActive(shouldShowSprite);
+
         }
 
-        // §ó·s¨¤¦â¦WºÙ
+
+
+        // æ›´æ–°è§’è‰²åç¨±
+
         nameText.text = line.characterName;
 
-        // ·s¼W Log ÀË¬d½á­Èµ²ªG
-        Debug.Log($"ÀË¬d¦WºÙ¤¸¥ó¡GnameText ¬O§_¬° null¡H ({nameText == null})");
-        Debug.Log($"½á­È¦WºÙ¡G{nameText.text}");
 
-        // ¼½©ñ­µ®Ä (¦pªG¦³ªº¸Ü)
+
+        // æ–°å¢ Log æª¢æŸ¥è³¦å€¼çµæœ
+
+        Debug.Log($"æª¢æŸ¥åç¨±å…ƒä»¶ï¼šnameText æ˜¯å¦ç‚º nullï¼Ÿ ({nameText == null})");
+
+        Debug.Log($"è³¦å€¼åç¨±ï¼š{nameText.text}");
+
+
+
+        // æ’­æ”¾éŸ³æ•ˆ (å¦‚æœæœ‰çš„è©±)
+
         if (line.sfx != null)
+
         {
-            // ³o¸Ì»İ­n¤@­Ó AudioSource ¤¸¥ó¨Ó¼½©ñ
-            // °²³]§A¤w¸g¦³¤@­Ó AudioSource ¦b DialogueManager ªº GameObject ¤W
+
+            // é€™è£¡éœ€è¦ä¸€å€‹ AudioSource å…ƒä»¶ä¾†æ’­æ”¾
+
+            // å‡è¨­ä½ å·²ç¶“æœ‰ä¸€å€‹ AudioSource åœ¨ DialogueManager çš„ GameObject ä¸Š
+
             AudioSource audioSource = GetComponent<AudioSource>();
+
             if (audioSource != null)
+
             {
+
                 audioSource.PlayOneShot(line.sfx);
+
             }
+
         }
 
-        // §ó·s¨¤¦â¥ßÃ¸
+
+
+        // æ›´æ–°è§’è‰²ç«‹ç¹ª
+
         if (characterImage != null)
+
         {
-            // ¦pªG³o¦æ¨S¦³«ü©w¥ßÃ¸¡A§Ú­Ì´NÁôÂÃ©Î²MªÅ¡A¼ÒÀÀ¨¤¦âÂ÷¶}
+
+            // å¦‚æœé€™è¡Œæ²’æœ‰æŒ‡å®šç«‹ç¹ªï¼Œæˆ‘å€‘å°±éš±è—æˆ–æ¸…ç©ºï¼Œæ¨¡æ“¬è§’è‰²é›¢é–‹
+
             characterImage.sprite = line.characterSprite;
+
             characterImage.gameObject.SetActive(line.characterSprite != null);
+
         }
 
-        // --- 2. ±Ò°Ê¥´¦r®ÄªG ---
+
+
+        // --- 2. å•Ÿå‹•æ‰“å­—æ•ˆæœ ---
+
         typewriterEffect.StartDisplay(line.dialogueText);
 
-        // ·Ç³Æ¶i¤J¤U¤@¦æ
+
+
+        // æº–å‚™é€²å…¥ä¸‹ä¸€è¡Œ
+
         currentLineIndex++;
 
+
+
     }
+
+
 
     /// <summary>
-    /// µ²§ô¹ï¸Ü¡AÁôÂÃ UI
+
+    /// çµæŸå°è©±ï¼Œéš±è— UI
+
     /// </summary>
+
     private void EndDialogue()
+
     {
+
         dialoguePanel.SetActive(false);
-        Debug.Log("¹ï¸Ü¬yµ{µ²§ô¡I·Ç³Æ¤Á´«³õ´º...");
-        // ³o¸Ì¥i¥HÄ²µo³õ´º¤Á´«¡B¹CÀ¸ª¬ºA§ïÅÜ©Î¦Û¥Ñ²¾°Ê¼Ò¦¡
 
-        // --- ¡i·s¼WÅŞ¿è¡j: ©I¥s³õ´º±±¨î¾¹¶i¦æ¤Á´« ---
+        Debug.Log("å°è©±æµç¨‹çµæŸï¼æº–å‚™åˆ‡æ›å ´æ™¯...");
+
+        // é€™è£¡å¯ä»¥è§¸ç™¼å ´æ™¯åˆ‡æ›ã€éŠæˆ²ç‹€æ…‹æ”¹è®Šæˆ–è‡ªç”±ç§»å‹•æ¨¡å¼
+
+
+
+        // --- ã€æ–°å¢é‚è¼¯ã€‘: å‘¼å«å ´æ™¯æ§åˆ¶å™¨é€²è¡Œåˆ‡æ› ---
+
         if (sceneController != null)
+
         {
+
             sceneController.LoadNextGameScene();
+
         }
+
         else
+
         {
-            Debug.LogError("Scene Controller ¥¼³sµ²¡AµLªk¤Á´«³õ´º¡I");
+
+            Debug.LogError("Scene Controller æœªé€£çµï¼Œç„¡æ³•åˆ‡æ›å ´æ™¯ï¼");
+
         }
+
     }
 
-    // ±Nª±®aªº¿é¤JÅŞ¿è±q TestDialogue Âà²¾¨ì³o¸Ì
+
+
+    // å°‡ç©å®¶çš„è¼¸å…¥é‚è¼¯å¾ TestDialogue è½‰ç§»åˆ°é€™è£¡
+
     void Update()
+
     {
+
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
+
         {
-            // ½T«O¹ï¸Ü®Ø¬O±Ò°Êª¬ºA
+
+            // ç¢ºä¿å°è©±æ¡†æ˜¯å•Ÿå‹•ç‹€æ…‹
+
             if (dialoguePanel.activeSelf)
+
             {
-                // ¦pªG¤å¦rÁÙ¦b¥´¦r¤¤¡A«h¸õ¹L
+
+                // å¦‚æœæ–‡å­—é‚„åœ¨æ‰“å­—ä¸­ï¼Œå‰‡è·³é
+
                 if (typewriterEffect.IsTyping())
+
                 {
+
                     typewriterEffect.SkipTyping();
+
                 }
-                // ¦pªG¤å¦r¤w¸gÅã¥Ü§¹²¦¡A«h¶i¤J¤U¤@¦æ
+
+                // å¦‚æœæ–‡å­—å·²ç¶“é¡¯ç¤ºå®Œç•¢ï¼Œå‰‡é€²å…¥ä¸‹ä¸€è¡Œ
+
                 else
+
                 {
+
                     DisplayNextLine();
+
                 }
+
             }
+
         }
+
     }
+
 }
