@@ -84,8 +84,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter2-3-2.unity
     guid: 6bb35361c6bd71d49afc385c7d76adb3
   - enabled: 1
+    path: Assets/Scenes/Chapter2-3-2-1.unity
+    guid: 1681c86816161d8418e119add40d6751
+  - enabled: 1
     path: Assets/Scenes/Chapter2-3-2Pazzel.unity
     guid: d600b347a52b6784b9a13addd9b7bdd3
+  - enabled: 1
+    path: Assets/Scenes/Chapter2-4.unity
+    guid: 65c0b70d0d760c44b85febbf20b9a69e
+  - enabled: 1
+    path: Assets/Scenes/Chapter2-4-1.unity
+    guid: 24c0a5d61c5030d4ca487a4fb9d8021b
+  - enabled: 1
+    path: Assets/Scenes/Chapter2-4-2.unity
+    guid: 2ea34784da5f3394486d8238fcb40f6f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

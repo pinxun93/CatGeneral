@@ -252,8 +252,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -239.34036, y: -185.78357}
-  m_SizeDelta: {x: 382.987, y: 68.5466}
+  m_AnchoredPosition: {x: -179.6112, y: -185.78357}
+  m_SizeDelta: {x: 502.4453, y: 68.5466}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &134526433
 GameObject:
@@ -908,7 +908,7 @@ MonoBehaviour:
   characterImage: {fileID: 134526435}
   backgroundRenderer: {fileID: 2131483477}
   sceneController: {fileID: 1742229126}
-  currentDialogue: {fileID: 11400000, guid: e525bbfca1787254a9b275ff7d23b238, type: 2}
+  currentDialogue: {fileID: 11400000, guid: 3e64e0c9f50be744490554f6c31dc8ad, type: 2}
 --- !u!114 &1742229126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762187391118f2e4e879cb4a150e42ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Chapter2-3-2-1
+  nextSceneName: Chapter3-1
 --- !u!1 &1743631977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8498091435768795753, guid: 6745ff3441bc89a49a770fe04777445d, type: 3}
+  m_Sprite: {fileID: -1919589626042399823, guid: 3949617a26080a94fbb9d00663688c17, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
