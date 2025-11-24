@@ -834,7 +834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: Chapter2-3-3
-  delayBeforeSceneLoad: 1
+  delayBeforeSceneLoad: 0
 --- !u!1 &316940454
 GameObject:
   m_ObjectHideFlags: 0

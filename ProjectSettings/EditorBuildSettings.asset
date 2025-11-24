@@ -90,6 +90,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter2-3-2Pazzel.unity
     guid: d600b347a52b6784b9a13addd9b7bdd3
   - enabled: 1
+    path: Assets/Scenes/Chapter2-3-3.unity
+    guid: 4afec6da70f97fb45b4142750ed4106a
+  - enabled: 1
     path: Assets/Scenes/Chapter2-4.unity
     guid: 65c0b70d0d760c44b85febbf20b9a69e
   - enabled: 1
