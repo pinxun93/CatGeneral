@@ -2,20 +2,36 @@ using UnityEngine;
 
 public class ChaserController : MonoBehaviour
 {
-    [Header("°l³v³]©w")]
-    [Tooltip("°l³vªÌªº²¾°Ê³t«×")]
+    [Header("è¿½é€è¨­å®š")]
+    [Tooltip("è¿½é€è€…çš„ç§»å‹•é€Ÿåº¦")]
     public float moveSpeed = 5.0f;
 
-    [Tooltip("°l³vªº¥Ø¼Ğ¡]³q±`¬Oª±®aªº¨¤¦â¡^")]
+    [Tooltip("è¿½é€çš„ç›®æ¨™ï¼ˆé€šå¸¸æ˜¯ç©å®¶çš„è§’è‰²ï¼‰")]
     public Transform target;
 
-    [Header("ª¬ºA³]©w")]
-    [Tooltip("°l³vªÌ¬O§_³B©ó¥D°Ê°l³vª¬ºA")]
+    [Header("ç‹€æ…‹è¨­å®š")]
+    [Tooltip("è¿½é€è€…æ˜¯å¦è™•æ–¼ä¸»å‹•è¿½é€ç‹€æ…‹")]
     public bool isChasing = true;
+
+    private GameManager gameManager;
+    private Rigidbody2D rb;
 
     void Start()
     {
-        // ¹Á¸Õ¦b¹CÀ¸¶}©l®É¦Û°Ê§ä¨ì Tag ¬° "Player" ªºª«¥ó§@¬°¥Ø¼Ğ
+        // 1. ç²å– Rigidbody2D å…ƒä»¶
+        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.LogError("ChaserController Error: è²“å¦–ç‰©ä»¶ä¸Šç¼ºå°‘ Rigidbody2D å…ƒä»¶ï¼è«‹å…ˆæ·»åŠ ã€‚");
+            enabled = false;
+            return;
+        }
+
+        // 2. è¨­ç½® Rigidbody2D
+        rb.gravityScale = 0;        // ç§»é™¤é‡åŠ›å½±éŸ¿
+        rb.freezeRotation = true;   // é˜²æ­¢æ—‹è½‰
+
+        // 3. å˜—è©¦è‡ªå‹•æ‰¾åˆ° Tag ç‚º "Player" çš„ç‰©ä»¶ä½œç‚ºç›®æ¨™
         if (target == null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -25,48 +41,70 @@ public class ChaserController : MonoBehaviour
             }
             else
             {
-                Debug.LogError("ChaserController Error: ³õ´º¤¤§ä¤£¨ì Tag ¬° 'Player' ªº¥Ø¼Ğª«¥ó¡I");
                 isChasing = false;
             }
+        }
+
+        // 4. æ‰¾åˆ° GameManager å¯¦ä¾‹ (ä½¿ç”¨ FindAnyObjectByType è§£æ±ºéæ™‚è­¦å‘Š)
+        gameManager = FindAnyObjectByType<GameManager>();
+        if (gameManager == null)
+        {
+            Debug.LogError("ChaserController Error: å ´æ™¯ä¸­ç¼ºå°‘ GameManager å¯¦ä¾‹ï¼è«‹æª¢æŸ¥ Hierarchyã€‚");
         }
     }
 
     void Update()
     {
+        // Update åƒ…ç”¨æ–¼ç‹€æ…‹æª¢æŸ¥
+    }
+
+    void FixedUpdate()
+    {
         if (isChasing && target != null)
         {
-            ChaseTarget();
+            ChaseTargetPhysics();
+        }
+        else
+        {
+            // å¦‚æœä¸è¿½é€ï¼Œåœæ­¢ç§»å‹•
+            if (rb != null) rb.linearVelocity = Vector2.zero;
         }
     }
 
-    private void ChaseTarget()
+    private void ChaseTargetPhysics()
     {
+        // 1. è¨ˆç®—è¿½é€è€…åˆ°ç›®æ¨™çš„æ–¹å‘å‘é‡
         Vector3 direction = target.position - transform.position;
         direction.z = 0;
-        transform.position += direction.normalized * moveSpeed * Time.deltaTime;
+
+        // 2. ä½¿ç”¨ linearVelocity é€²è¡Œç‰©ç†ç§»å‹• (è§£æ±º velocity éæ™‚è­¦å‘Š)
+        rb.linearVelocity = direction.normalized * moveSpeed;
     }
 
     /// <summary>
-    /// ·í°l³vªÌ¸I¼²¨ì¨ä¥Lª«¥ó®É©I¥s (¥Î©ó§P©w¥¢±Ñ±ø¥ó)
+    /// ç•¶è¿½é€è€…ç¢°æ’åˆ°ç©å®¶æ™‚å‘¼å« (ç”¨æ–¼åˆ¤å®šå¤±æ•—æ¢ä»¶)
     /// </summary>
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // °²³]ª±®aªº Tag ¬O "Player"
         if (other.CompareTag("Player"))
         {
-            Debug.Log("ª±®a³Q§ì¦í¤F¡I·Ç³Æ¸T¥Îª±®a²¾°Ê¡C");
+            Debug.Log("ç©å®¶è¢«æŠ“ä½äº†ï¼è§¸ç™¼ Game Overã€‚");
 
-            // 1. °±¤î°l³vªÌ¦Û¤vªº°l³v¦æ¬°
-            isChasing = false;
-
-            // 2. ¡iÃöÁä­×¥¿¡j¡G©I¥sª±®a¸}¥»¤Wªº¤½¦@°±¤î¨ç¦¡
+            // 1. ç¦ç”¨ç©å®¶ç§»å‹• (å‘¼å« PlayerMovement è…³æœ¬ä¸Šçš„å…¬å…±å‡½å¼)
             if (other.TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
             {
                 playerMovement.DisableMovement();
             }
 
-            // ³o¸Ì¥i¥H©I¥s Game Manager ³B²z¹CÀ¸¥¢±Ñµe­±
-            // ¨Ò¦p: FindObjectOfType<GameManager>().GameOver();
+            // 2. å‘¼å« Game Manager è™•ç†å¤±æ•— (é¡¯ç¤º UI)
+            if (gameManager != null)
+            {
+                gameManager.GameOver();
+            }
+
+            // åœæ­¢è¿½é€è€…ç§»å‹•
+            isChasing = false;
+            rb.linearVelocity = Vector2.zero;
         }
     }
 }
