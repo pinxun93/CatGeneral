@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SafePuzzle : MonoBehaviour
 {
@@ -14,6 +15,16 @@ public class SafePuzzle : MonoBehaviour
     public TextMeshProUGUI inputField;
     public GameObject safeDoorObject;
 
+    [Header("UI 反饋")]
+    [Tooltip("密碼正確時顯示的 UI 畫面 (請在 Editor 中連結)")]
+    public GameObject correctPanel;
+
+    [Tooltip("密碼錯誤時顯示的 UI 畫面 (請在 Editor 中連結)")]
+    public GameObject incorrectPanel;
+
+    [Tooltip("密碼錯誤訊息顯示的時間 (秒)")]
+    public float incorrectDisplayDuration = 1.5f;
+
     [Header("狀態與流程控制")]
     [Tooltip("追蹤保險櫃是否已解鎖")]
     public bool isUnlocked = false;
@@ -26,11 +37,11 @@ public class SafePuzzle : MonoBehaviour
 
     void Start()
     {
-        // 確保密碼框是空的
         if (inputField != null) inputField.text = "";
 
-        // 注意：這裡已經移除了所有關於 sceneController 的尋找邏輯，
-        // 因為我們不再需要它。
+        // 確保所有反饋 UI 都是隱藏的
+        if (correctPanel != null) correctPanel.SetActive(false);
+        if (incorrectPanel != null) incorrectPanel.SetActive(false);
     }
 
     // 由 UI 按鈕呼叫：添加數字
@@ -39,6 +50,8 @@ public class SafePuzzle : MonoBehaviour
         if (!isUnlocked && inputField != null && inputField.text.Length < CORRECT_CODE.Length)
         {
             inputField.text += number;
+            // 【移除】: 每輸入一個數字就關閉錯誤提示，避免錯誤提示停留太久
+            // if (incorrectPanel != null) incorrectPanel.SetActive(false); 
         }
     }
 
@@ -46,6 +59,8 @@ public class SafePuzzle : MonoBehaviour
     public void ClearInput()
     {
         if (!isUnlocked && inputField != null) inputField.text = "";
+        // 【移除】: 清除輸入時，同時關閉錯誤提示
+        // if (incorrectPanel != null) incorrectPanel.SetActive(false);
     }
 
     // 由 Enter 按鈕呼叫：檢查密碼
@@ -53,56 +68,100 @@ public class SafePuzzle : MonoBehaviour
     {
         if (isUnlocked) return;
 
-        if (inputField != null && inputField.text == CORRECT_CODE)
+        if (inputField == null) return;
+
+        string currentInput = inputField.text.ToString().Trim();
+
+        if (currentInput == CORRECT_CODE)
         {
+            // 密碼正確
             UnlockSafe();
+            ShowCorrectFeedback();
         }
         else
         {
-            Debug.LogWarning($"密碼錯誤！請重試。");
+            // 密碼錯誤
+            // 1. 顯示錯誤 UI (啟用)
+            ShowIncorrectFeedback();
+            // 2. 清空輸入 (現在 ClearInput 不會立即關閉 UI)
             ClearInput();
+        }
+    }
+
+    /// <summary>
+    /// 顯示密碼正確的 UI 
+    /// </summary>
+    private void ShowCorrectFeedback()
+    {
+        if (correctPanel != null)
+        {
+            // 確保關閉錯誤面板
+            if (incorrectPanel != null) incorrectPanel.SetActive(false);
+            correctPanel.SetActive(true);
+        }
+    }
+
+    /// <summary>
+    /// 顯示密碼錯誤的 UI 並計時隱藏
+    /// </summary>
+    private void ShowIncorrectFeedback()
+    {
+        if (incorrectPanel != null)
+        {
+            if (correctPanel != null) correctPanel.SetActive(false);
+
+            incorrectPanel.SetActive(true);
+
+            StartCoroutine(HideIncorrectPanelAfterDelay(incorrectDisplayDuration));
+        }
+    }
+
+    /// <summary>
+    /// 延遲一段時間後隱藏密碼錯誤訊息
+    /// </summary>
+    private IEnumerator HideIncorrectPanelAfterDelay(float delay)
+    {
+        if (incorrectPanel != null && incorrectPanel.activeSelf)
+        {
+            yield return new WaitForSeconds(delay);
+
+            if (incorrectPanel != null && incorrectPanel.activeSelf)
+            {
+                incorrectPanel.SetActive(false);
+            }
+        }
+        else
+        {
+            yield break;
         }
     }
 
     private void UnlockSafe()
     {
-        // 鎖定狀態，防止重複解鎖
         isUnlocked = true;
-        Debug.Log("保險櫃已解鎖！");
 
-        // 1. 給予物品
         if (inventoryManager != null) inventoryManager.AddItem(ITEM_TO_GIVE);
-
-        // 2. 視覺變化
         if (safeDoorObject != null) safeDoorObject.SetActive(false);
-
-        // 3. 關閉密碼介面
-        if (uiManager != null) uiManager.CloseKeypad();
-
-        // 4. 更新 SafeTrigger 狀態
         if (safeTriggerToUpdate != null)
         {
             safeTriggerToUpdate.isUnlocked = true;
         }
 
-        // 5. 【最終場景轉換】：直接使用 Unity 核心 SceneManager 載入場景
+        StartCoroutine(LoadNextSceneAfterDelay(1.5f));
+    }
+
+    private IEnumerator LoadNextSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
         if (!string.IsNullOrEmpty(nextSceneName))
         {
-            // 使用 Application.CanStreamedLevelBeLoaded 來檢查場景是否存在 (更安全)
+            if (uiManager != null) uiManager.CloseKeypad();
+
             if (Application.CanStreamedLevelBeLoaded(nextSceneName))
             {
-                Debug.Log($"SafePuzzle: 成功載入場景 -> {nextSceneName}");
                 SceneManager.LoadScene(nextSceneName);
             }
-            else
-            {
-                // 如果場景名稱不正確或不在 Build Settings，這裡會報錯
-                Debug.LogError($"SafePuzzle Error: 場景 '{nextSceneName}' 不存在或未添加到 Build Settings 中！");
-            }
-        }
-        else
-        {
-            Debug.LogError("SafePuzzle Error: nextSceneName 未設置！無法轉換場景。");
         }
     }
 }
