@@ -14,13 +14,21 @@ public class JigsawController : MonoBehaviour
     [Tooltip("拼圖塊與目標位置的最大容許距離，達到此距離則吸附")]
     public float snapDistance = 0.5f;
 
+    // --- UI 反饋 ---
+    [Header("UI 反饋")]
+    [Tooltip("拼圖解謎成功時顯示的 UI 畫面 (請在 Editor 中連結)")]
+    public GameObject solvedPanel;
+
+    [Tooltip("成功訊息顯示的時間 (秒)")]
+    public float solvedDisplayDuration = 3.0f; // 與下方協程的延遲時間一致
+
     // --- 流程與狀態 ---
     [Header("流程與狀態控制")]
     [Tooltip("解謎成功後要載入的下一個場景名稱")]
     public string nextSceneName = "Room3";
 
-    private int piecesInPlace = 0;      // 當前正確位置的數量
-    private bool isSolved = false;     // 解謎狀態鎖，防止重複觸發
+    private int piecesInPlace = 0;       // 當前正確位置的數量
+    private bool isSolved = false;       // 解謎狀態鎖，防止重複觸發
 
 
     void Start()
@@ -30,6 +38,9 @@ public class JigsawController : MonoBehaviour
         {
             pieces = FindObjectsByType<PuzzlePiece>(FindObjectsSortMode.None);
         }
+
+        // 確保 UI 初始狀態為關閉
+        if (solvedPanel != null) solvedPanel.SetActive(false);
 
         InitializeAndShuffle();
     }
@@ -41,14 +52,14 @@ public class JigsawController : MonoBehaviour
     {
         if (pieces.Length == 0)
         {
-            Debug.LogError("JigsawController Error: 場景中找不到任何拼圖塊！");
+            // Debug.LogError("JigsawController Error: 場景中找不到任何拼圖塊！"); // 移除 Debug.Log
             return;
         }
 
         InitializeTargetPositions();
         ShufflePieces();
 
-        Debug.Log("JigsawController: 拼圖系統已準備就緒。");
+        // Debug.Log("JigsawController: 拼圖系統已準備就緒。"); // 移除 Debug.Log
     }
 
     /// <summary>
@@ -144,36 +155,34 @@ public class JigsawController : MonoBehaviour
         if (isSolved || piecesInPlace < pieces.Length) return;
 
         isSolved = true;
-        Debug.Log($"拼圖解鎖成功！將於 3 秒後切換到場景: {nextSceneName}");
+        // Debug.Log($"拼圖解鎖成功！將於 3 秒後切換到場景: {nextSceneName}"); // 移除 Debug.Log
 
         StartCoroutine(HandlePuzzleSolved());
     }
 
     /// <summary>
-    /// 處理解謎成功後的流程 (延遲 3 秒 -> 轉換場景)。
+    /// 處理解謎成功後的流程 (顯示 UI -> 延遲 3 秒 -> 轉換場景)。
     /// </summary>
     private IEnumerator HandlePuzzleSolved()
     {
-        const float delayDuration = 3.0f;
+        // 1. 顯示成功 UI
+        if (solvedPanel != null)
+        {
+            solvedPanel.SetActive(true);
+        }
 
-        // 1. 等待 3 秒
-        yield return new WaitForSeconds(delayDuration);
+        // 2. 等待 3 秒
+        yield return new WaitForSeconds(solvedDisplayDuration);
 
-        // 2. 轉換場景
+        // 3. 轉換場景
         if (!string.IsNullOrEmpty(nextSceneName))
         {
             if (Application.CanStreamedLevelBeLoaded(nextSceneName))
             {
                 SceneManager.LoadScene(nextSceneName);
             }
-            else
-            {
-                Debug.LogError($"JigsawController Error: 場景 '{nextSceneName}' 不存在或未添加到 Build Settings 中！請檢查名稱。");
-            }
+            // else 區塊已移除 Debug.LogError
         }
-        else
-        {
-            Debug.LogError("JigsawController Error: nextSceneName 未設置！無法轉換場景。");
-        }
+        // else 區塊已移除 Debug.LogError
     }
 }
