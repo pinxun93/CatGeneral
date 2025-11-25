@@ -27,4 +27,4 @@ MonoBehaviour:
     dialogueText: "\u96B1\u96B1\u7D04\u7D04\u807D\u5230\u4E00\u500B\u8072\u97F3\u5728\u8AAA
       : \u300C\u53EA\u8981\u4F60\u8A18\u5F97\u6211\u2026\u2026\u6211\u5C31\u80FD\u653E\u4E0B\u3002\u300D"
     characterSprite: {fileID: 0}
-    sfx: {fileID: 0}
+    sfx: {fileID: 8300000, guid: db9784ac8883e2444846eb1ae803b203, type: 3}

@@ -16,7 +16,7 @@ MonoBehaviour:
   background: {fileID: 2657139620823383744, guid: e161bd02f6cdc0747b4a770ca9f9d529, type: 3}
   dialogueLines:
   - characterName: "\u4E3B\u89D2(\u5FC3\u60F3)"
-    dialogueText: "\u6628\u5929\u90A3\u8072\u8C93\u53EB\u2026\u2026\u4E0D\u6703\u662F\u5E7B\u89BA\u5427\uFF1F\u90A3\u96BB\u8C93\uFF0C\u597D\u50CF\u5728\u5F15\u5C0E\u6211\u53BB\u54EA\u88E1\u3002"
+    dialogueText: "\u6628\u5929\u90A3\u96BB\u8C93\u5996\u2026\u2026\u4E0D\u6703\u662F\u5922\u5427\uFF1F\u90A3\u96BB\u8C93\uFF0C\u597D\u50CF\u5728\u5F15\u5C0E\u6211\u53BB\u54EA\u88E1\u3002"
     characterSprite: {fileID: 8785289583145846344, guid: 6483f0fbf6a794844a7b3b2496dfba50, type: 3}
     sfx: {fileID: 0}
   - characterName: 
