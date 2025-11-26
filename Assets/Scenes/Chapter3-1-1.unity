@@ -909,7 +909,7 @@ MonoBehaviour:
   characterImage: {fileID: 134526435}
   backgroundRenderer: {fileID: 2131483477}
   sceneController: {fileID: 1742229126}
-  currentDialogue: {fileID: 11400000, guid: e060a5d5d0b814a48b7e0eceb80db22e, type: 2}
+  currentDialogue: {fileID: 11400000, guid: 337fe8593ce7dd444b973202c177c261, type: 2}
 --- !u!114 &1742229126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762187391118f2e4e879cb4a150e42ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Chapter3-1-1
+  nextSceneName: Chapter3-1-2
 --- !u!82 &1742229127
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8221296703962557640, guid: d2b0149c53559fb40bfce8cb3072f9fc, type: 3}
+  m_Sprite: {fileID: 2182677331205061637, guid: 3f834b7b9fe3f4846a04f97cd97e7b70, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
