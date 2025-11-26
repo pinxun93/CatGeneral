@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5c2c0496a326eab4db6ffc0e6e9a07d2
+guid: 46d420e993a914b41b129e6059e829b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8100501348551030417
-    second: Chapter3-2-5_0
+      213: -9001605989799355217
+    second: BadGuy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chapter3-2-5_0
+      name: BadGuy_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 44
-        width: 640
-        height: 414
+        x: 341
+        y: 669
+        width: 325
+        height: 299
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 51}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f690b0911fc359f80800000000000000
-      internalID: -8100501348551030417
+      spriteID: fac1bf97b0fd31380800000000000000
+      internalID: -9001605989799355217
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 27de70b5ce925fa48b77240600e2bdbf
+    spriteID: 5ace54a75c4b4da4494522d69aee5e6e
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Chapter3-2-5_0: -8100501348551030417
+      BadGuy_0: -9001605989799355217
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
