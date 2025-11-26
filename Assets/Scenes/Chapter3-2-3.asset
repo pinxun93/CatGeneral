@@ -26,9 +26,9 @@ MonoBehaviour:
   - characterName: "\u5C0F\u5B69"
     dialogueText: "\u6211\u5011\u6C38\u9060\u90FD\u662F\u6700\u597D\u7684\u670B\u53CB
       !"
-    characterSprite: {fileID: 0}
+    characterSprite: {fileID: 7871294606984675395, guid: 226ae9c42020dad4688289b3cb993137, type: 3}
     sfx: {fileID: 0}
   - characterName: "\u5C0F\u8C93"
     dialogueText: "\u55B5~"
-    characterSprite: {fileID: 0}
+    characterSprite: {fileID: -7722036178428590049, guid: 61eed9a774702a94a80e0525675ff6ca, type: 3}
     sfx: {fileID: 8300000, guid: 8b0a97395448c8742972323653abb12f, type: 3}

@@ -289,8 +289,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -517.4895, y: -167.87802}
-  m_SizeDelta: {x: 134.4586, y: 125.456}
+  m_AnchoredPosition: {x: -530, y: -163}
+  m_SizeDelta: {x: 114.9471, y: 105.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &134526435
 MonoBehaviour:
@@ -909,7 +909,7 @@ MonoBehaviour:
   characterImage: {fileID: 134526435}
   backgroundRenderer: {fileID: 2131483477}
   sceneController: {fileID: 1742229126}
-  currentDialogue: {fileID: 11400000, guid: 0731923e792982542aca59b637884b2a, type: 2}
+  currentDialogue: {fileID: 11400000, guid: b1beb2e7db8eefe4fb58e2f6a314a7d4, type: 2}
 --- !u!114 &1742229126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762187391118f2e4e879cb4a150e42ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Chapter3-2-3
+  nextSceneName: Chapter3-2-4
 --- !u!82 &1742229127
 AudioSource:
   m_ObjectHideFlags: 0
