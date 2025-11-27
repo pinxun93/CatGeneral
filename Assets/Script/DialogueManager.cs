@@ -20,7 +20,6 @@ public class DialogueManager : MonoBehaviour
 
     public Image characterImage;     // <<<<< 用來顯示立繪的 Image 元件
 
-    public SpriteRenderer backgroundRenderer; // 用於顯示背景的 2D 元件
 
 
 
@@ -109,28 +108,6 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
 
 
-
-        // 設置背景
-
-        if (backgroundRenderer != null && currentDialogue.background != null)
-
-        {
-
-            backgroundRenderer.sprite = currentDialogue.background;
-
-            backgroundRenderer.gameObject.SetActive(true); // 確保背景是啟動的
-
-        }
-
-        else if (backgroundRenderer != null)
-
-        {
-
-            // 如果沒有指定背景，可以選擇隱藏或保留舊的背景
-
-            // backgroundRenderer.gameObject.SetActive(false); 
-
-        }
 
 
 
