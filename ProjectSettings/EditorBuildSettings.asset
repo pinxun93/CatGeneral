@@ -152,6 +152,39 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter3-2-11.unity
     guid: 09d4d14088c6e9d4ead432dd101c3b91
+  - enabled: 1
+    path: Assets/Scenes/Chapter3-3.unity
+    guid: 1d64b67d9cce3164292319755eca6a66
+  - enabled: 1
+    path: Assets/Scenes/Chapter3-3-1.unity
+    guid: 81e5f045694d10f4e99f5667218516ac
+  - enabled: 1
+    path: Assets/Scenes/Chapter3-3-2.unity
+    guid: 01785d73c1e9f604baead4ae4bc96e4d
+  - enabled: 1
+    path: Assets/Scenes/Chapter3-3-3.unity
+    guid: f38e23a6895c8aa48bb5de8ac4feaf6c
+  - enabled: 1
+    path: Assets/Scenes/Chapter3-3-4.unity
+    guid: 1b037396721c03d44bf05ef215820a3b
+  - enabled: 1
+    path: Assets/Scenes/Chapter3-3-5.unity
+    guid: e5f370832312c0d4a9bb0a0708ff9319
+  - enabled: 1
+    path: Assets/Scenes/Chapter3-4.unity
+    guid: fcdd609fbf3280c4ea6039ea63c291b0
+  - enabled: 1
+    path: Assets/Scenes/Chapter3-4-1.unity
+    guid: b4d0c1345fdb8e9478cab98d230b3018
+  - enabled: 1
+    path: Assets/Scenes/Chapter3-4-2GoodEnd.unity
+    guid: 073abad51d26db04188f65d739142f0d
+  - enabled: 1
+    path: Assets/Scenes/Chapter3-4-2-1.unity
+    guid: a573bb80790c7ce4abb944473b0e2365
+  - enabled: 1
+    path: Assets/Scenes/Chapter3-4-2BadEnd.unity
+    guid: 233339d0a2d674e48b1c20f074b135dc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
