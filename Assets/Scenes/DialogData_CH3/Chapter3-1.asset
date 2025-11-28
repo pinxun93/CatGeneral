@@ -15,6 +15,10 @@ MonoBehaviour:
   dialogueTitle: Chapter2_Scene_3
   background: {fileID: 2657139620823383744, guid: e161bd02f6cdc0747b4a770ca9f9d529, type: 3}
   dialogueLines:
+  - characterName: 
+    dialogueText: "\u7AE0\u7BC0\u4E09\u958B\u59CB"
+    characterSprite: {fileID: 0}
+    sfx: {fileID: 0}
   - characterName: "\u65C1\u767D"
     dialogueText: "\u591C\u8272\u6DF1\u6C89\uFF0C\u5C71\u9053\u88AB\u9727\u6C23\u7C60\u7F69\u3002"
     characterSprite: {fileID: 0}

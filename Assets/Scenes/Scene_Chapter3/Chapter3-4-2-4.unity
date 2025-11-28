@@ -771,7 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762187391118f2e4e879cb4a150e42ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Chapter3-4-2-4
+  nextSceneName: Chapter0
 --- !u!82 &1742229127
 AudioSource:
   m_ObjectHideFlags: 0
