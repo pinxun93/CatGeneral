@@ -907,7 +907,6 @@ MonoBehaviour:
   nameText: {fileID: 26713322}
   dialoguePanel: {fileID: 1077061437}
   characterImage: {fileID: 134526435}
-  backgroundRenderer: {fileID: 2131483477}
   sceneController: {fileID: 1742229126}
   currentDialogue: {fileID: 11400000, guid: 3e64e0c9f50be744490554f6c31dc8ad, type: 2}
 --- !u!114 &1742229126
@@ -922,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762187391118f2e4e879cb4a150e42ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Chapter3-1
+  nextSceneName: Chapter2-4-3
 --- !u!82 &1742229127
 AudioSource:
   m_ObjectHideFlags: 0
