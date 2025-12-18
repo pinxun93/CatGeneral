@@ -252,8 +252,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -294.62854, y: -185.78357}
-  m_SizeDelta: {x: 272.4106, y: 68.5466}
+  m_AnchoredPosition: {x: -147.54411, y: -145.44702}
+  m_SizeDelta: {x: 389.9748, y: 61.7255}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &134526433
 GameObject:
@@ -289,8 +289,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -517.4895, y: -167.87802}
-  m_SizeDelta: {x: 134.4586, y: 125.456}
+  m_AnchoredPosition: {x: -411.5808, y: -134.73245}
+  m_SizeDelta: {x: 107.1397, y: 99.9662}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &134526435
 MonoBehaviour:
@@ -623,8 +623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015258789, y: -232.50069}
-  m_SizeDelta: {x: 1280, y: 254.9987}
+  m_AnchoredPosition: {x: 0.76673126, y: -186.22528}
+  m_SizeDelta: {x: 1019.9333, y: 203.1889}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1127999100
 GameObject:
@@ -865,8 +865,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.7849, y: -294.75104}
-  m_SizeDelta: {x: 1229.6809, y: 92.0619}
+  m_AnchoredPosition: {x: -1.4523685, y: -235.82777}
+  m_SizeDelta: {x: 979.8381, y: 73.357}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1637124143
 MonoBehaviour:
@@ -1035,7 +1035,6 @@ MonoBehaviour:
   nameText: {fileID: 26713322}
   dialoguePanel: {fileID: 1077061437}
   characterImage: {fileID: 134526435}
-  backgroundRenderer: {fileID: 2131483477}
   sceneController: {fileID: 1742229126}
   currentDialogue: {fileID: 11400000, guid: e3b29c49594237d4b91f40d334cd8fea, type: 2}
 --- !u!114 &1742229126
@@ -1099,10 +1098,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1024, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

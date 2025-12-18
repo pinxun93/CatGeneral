@@ -19,7 +19,7 @@ MonoBehaviour:
     dialogueText: "\u591C\u8272\u6F38\u6DF1\uFF0C\u4E3B\u89D2\u4E00\u4EBA\u975C\u5750\u5728\u684C\u908A\uFF0C\u8166\u4E2D\u76E4\u65CB\u8457\u6751\u9577\u7684\u8A71\u3002"
     characterSprite: {fileID: 0}
     sfx: {fileID: 0}
-  - characterName: "\u4E3B\u89D2\uFF08\u5FC3\u60F3"
+  - characterName: "\u4E3B\u89D2\uFF08\u5FC3\u60F3 )"
     dialogueText: "\u4E4B\u524D\u4F86\u904E\u7684\u8B66\u5B98\u2026\u2026\u5C45\u7136\u5168\u90FD\u88AB\u5687\u9000\uFF1F\u9084\u8AAA\u90A3\u4E0D\u662F\u666E\u901A\u751F\u7269\u2026\u2026\r"
     characterSprite: {fileID: 8785289583145846344, guid: 6483f0fbf6a794844a7b3b2496dfba50, type: 3}
     sfx: {fileID: 0}

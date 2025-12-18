@@ -5360,7 +5360,6 @@ MonoBehaviour:
   nameText: {fileID: 0}
   dialoguePanel: {fileID: 0}
   characterImage: {fileID: 0}
-  backgroundRenderer: {fileID: 0}
   sceneController: {fileID: 1742229126}
   currentDialogue: {fileID: 0}
 --- !u!114 &1742229126
@@ -5565,7 +5564,7 @@ MonoBehaviour:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1024, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
