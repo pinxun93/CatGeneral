@@ -228,7 +228,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 203.85, y: -889}
+  m_AnchoredPosition: {x: 193, y: -1144}
   m_SizeDelta: {x: 100, y: 132.5689}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217367997
@@ -527,8 +527,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.5051, y: -585.5697}
-  m_SizeDelta: {x: 877.007, y: 743.5736}
+  m_AnchoredPosition: {x: 8.5051, y: -654.30096}
+  m_SizeDelta: {x: 877.007, y: 881.036}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &786514448
 MonoBehaviour:
@@ -550,10 +550,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u300A\u8C93\u5C07\u8ECD\u300B\r\n\r\n\u5DE5\u4F5C\u4EBA\u54E1\u6E05\u55AE\r\n\r\n\u4F01\u5283\u8207\u88FD\u4F5C\r\n\u5510\u4E00\u5BA3\r\n\u8CF4\u54C1\u85B0\r\n\r\n\u8CC7\u6E90\u4F86\u6E90\r\n\r\u97F3\u6A02\r\n\rUnity
+  m_text: "\u300A\u8C93\u5C07\u8ECD\u300B\r\n\r\n\u5DE5\u4F5C\u4EBA\u54E1\u6E05\u55AE\r\n\r\n\u4F01\u5283\u8207\u88FD\u4F5C\n\u6545\u4E8B\u6539\u7DE8/\u7DE8\u5287\r\n\u5510\u4E00\u5BA3\r\n\u8CF4\u54C1\u85B0\n\n\u5834\u666F\u5716/\u4EBA\u7269\u5716
+    : \u8CF4\u54C1\u85B0\n\n\r\u904A\u6232\u524D\u671F\u88FD\u4F5C : \u5510\u4E00\u5BA3\n\r\u904A\u6232\u524D\u671F\u88FD\u4F5C
+    : \u8CF4\u54C1\u85B0\n\n\u8CC7\u6E90\u4F86\u6E90\r\n\r\u97F3\u6A02\r\n\rUnity
     Asset Store : Ambiance (Dark)\r\nUnity Asset Store : Animals!\r\nUnity Asset
     Store : Wind Chimes\r\n\r\n\u6545\u4E8B\u53D6\u6750/\u6539\u7DE8\u81EA\r\n\r\u5B9C\u862D\u982D\u57CE\u300C\u8C93\u5C07\u8ECD\u300D\u5730\u65B9\u50B3\u8AAA\r\n\r\u53F0\u7063\u6C11\u9593\u5996\u602A\u6587\u5316\u76F8\u95DC\u6587\u737B\u8207\u53F2\u6599\r\n\r\r\n\u6307\u5C0E\u55AE\u4F4D\r\n\r\u6307\u5C0E\u8001\u5E2B\r\n\r\u90ED\u9F8D
-    \u8001\u5E2B\r\n\r\n\u7CFB\u5225\r\n\r\u8CC7\u8A0A\u61C9\u7528\u5B78\u7CFB\n\n\u5B78\u6821\r\n\r\u4F5B\u5149\u5927\u5B78\n\n\n"
+    \u52A9\u7406\u6559\u6388\r\n\r\n\u7CFB\u5225\r\n\r\u8CC7\u8A0A\u61C9\u7528\u5B78\u7CFB\n\n\u5B78\u6821\r\n\r\u4F5B\u5149\u5927\u5B78\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 617ee0a702d1af843be3efc0e56185ff, type: 2}
   m_sharedMaterial: {fileID: 1345990275416898767, guid: 617ee0a702d1af843be3efc0e56185ff, type: 2}
@@ -645,7 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 50
-  endDelay: 5
+  endDelay: 1
   nextSceneName: Chapter0
 --- !u!1 &995816934
 GameObject:
@@ -681,7 +683,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 201.92, y: -1040}
+  m_AnchoredPosition: {x: 194.93, y: -1317}
   m_SizeDelta: {x: 103.85, y: 112.3357}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995816936
