@@ -252,8 +252,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -105.35547, y: -140.07837}
-  m_SizeDelta: {x: 483.4635, y: 66.7424}
+  m_AnchoredPosition: {x: -195.51917, y: -269}
+  m_SizeDelta: {x: 904.3558, y: 124.8468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &134526433
 GameObject:
@@ -289,8 +289,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -416.48996, y: -131.65938}
-  m_SizeDelta: {x: 107.6882, y: 100.478}
+  m_AnchoredPosition: {x: -777.5203, y: -253.25162}
+  m_SizeDelta: {x: 201.439, y: 187.9519}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &134526435
 MonoBehaviour:
@@ -623,8 +623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.031258, y: -183.41583}
-  m_SizeDelta: {x: 1025.1553, y: 204.2291}
+  m_AnchoredPosition: {x: -2.2432, y: -350.066}
+  m_SizeDelta: {x: 1917.6326, y: 382.0265}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1121645628
 GameObject:
@@ -790,8 +790,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.2617583, y: -233.27234}
-  m_SizeDelta: {x: 984.8547, y: 73.7326}
+  m_AnchoredPosition: {x: -6.4155, y: -443.3265}
+  m_SizeDelta: {x: 1842.2468, y: 137.9225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1637124143
 MonoBehaviour:
@@ -840,15 +840,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1024, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
